@@ -22,8 +22,12 @@ interface User {
     studentId: string;
     email: string;
     username: string;
-    password: string;
+    password?: string;
     description?: Record<string, any>;
+    app_metadata: any;
+    user_metadata: any;
+    aud: string;
+    created_at: string;
 }
 
 interface EditStudentModalProps {
@@ -323,11 +327,11 @@ export default function StudentProfilePage() {
     
     const handleSaveUser = async (updatedData: User) => {
         if (!user) return;
-        const { id, ...updatePayload } = updatedData;
+        const { id, password, ...updatePayload } = updatedData; // Remove password from update payload
         const { data, error } = await supabase
             .from('users')
             .update(updatePayload)
-            .eq('id', user.id) // Still need the database 'id' for the update query
+            .eq('id', user.id)
             .select()
             .single();
 

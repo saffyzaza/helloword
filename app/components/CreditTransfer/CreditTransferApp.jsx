@@ -33,12 +33,12 @@ async function updateUserDescription(studentId, descriptionObj) {
 }
 
 const OPENROUTER_URL = 'https://openrouter.ai/api/v1/chat/completions';
-const OPENROUTER_API_KEY = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || 'YOUR_OPENROUTER_API_KEY';
-const MODEL_NAME = 'google/gemini-2.5-flash-lite';
+const OPENROUTER_API_KEY = process.env.NEXT_PUBLIC_OPENROUTER_API_KEY;
+const MODEL_NAME = 'google/gemini-2.5-pro';
 const SITE_REFERER = 'https://your-site-url.com';
 const SITE_TITLE = 'Credit Transfer AI App';
 const MAX_RETRIES = 5;
-const MIN_CHARS = 250;
+const MIN_CHARS = 150;
 
 const courseToTransferMock = { 
     id: 10, subcategory_id: 3, credit: 'แล้วแต่วิชา', type: 'บังคับ', 
@@ -50,14 +50,14 @@ const fetchAICreditMatch = async (sourceCourse, targetCourses) => {
     ).join('\n---\n');
 
     const systemPrompt = `
-        คุณคือ AI ผู้เชี่ยวชาญด้านการเทียบโอนหน่วยกิต (Credit Transfer Specialist) ที่มีความแม่นยำสูง
-        ภารกิจของคุณคือการเปรียบเทียบคำอธิบายรายวิชาจาก Source Course กับ Target Courses ที่ให้มา โดยใช้เกณฑ์ความคล้ายคลึงของเนื้อหา $(\ge 0.92)$.
-        *ข้อกำหนดเพิ่มเติม*: โปรดพิจารณาความคล้ายคลึงของชื่อวิชาเป็นปัจจัยเสริมในการตัดสินใจ (Weight $0.5$) เพื่อให้สามารถเทียบโอนได้แม้คะแนนเนื้อหาจะอยู่ใกล้เกณฑ์ $0.92$.
+        คุณคือ AI ผู้เชี่ยวชาญด้านการเทียบโอนหน่วยกิต (Credit Transfer Specialist) ที่มีความแม่นยำสูง cover คำนวนหลายๆรอบให้แน่ใจในความถูกต้องของการเทียบโอนหน่วยกิตในหลากหลายสาขาวิชาและหลักสูตร.
+        ภารกิจของคุณคือการเปรียบเทียบคำอธิบายรายวิชาจาก Source Course กับ Target Courses ที่ให้มา โดยใช้เกณฑ์ความคล้ายคลึงของเนื้อหา $(\ge 0.60)$.
+        *ข้อกำหนดเพิ่มเติม*: โปรดพิจารณาความคล้ายคลึงของชื่อวิชาเป็นปัจจัยเสริมในการตัดสินใจ (Weight $0.05) เพื่อให้สามารถเทียบโอนได้แม้คะแนนเนื้อหาจะอยู่ใกล้เกณฑ์ $0.60$.
         คุณต้องตอบกลับเฉพาะ JSON array เท่านั้น โดยแต่ละ Object ต้องมี Field ต่อไปนี้:
         1. targetCourseCode (รหัสวิชาในหลักสูตรเป้าหมาย)
         2. targetCourseName (ชื่อวิชาในหลักสูตรเป้าหมาย)
         3. matchedCourseCode (รหัสวิชาจาก Source Course ที่นำมาเทียบ)
-        4. similarityScore (คะแนนความคล้ายคลึงระหว่าง $0.92-1.00$ เท่านั้น)
+        4. similarityScore (คะแนนความคล้ายคลึงระหว่าง $0.60-1.00$ เท่านั้น)
         5. matchReason (เหตุผลสรุปสั้น ๆ ที่ AI ตัดสินว่าวิชานี้ควรเทียบโอนได้ ภาษาไทย)
         ถ้าไม่พบวิชาใดที่คล้ายคลึงถึงเกณฑ์ ให้ตอบกลับด้วย JSON array เปล่า []
     `;

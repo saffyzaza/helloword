@@ -227,7 +227,7 @@ export default function AdminPage() {
                     <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">หน้าจัดการสำหรับผู้ดูแลระบบ</h1>
                     <div className="flex items-center gap-4">
                         <p className="text-gray-500">จัดการข้อมูลผู้ใช้งาน, รายวิชา, และหมวดหมู่</p>
-                        <a href="/Dashboard" className="flex items-center gap-1 text-indigo-600 hover:underline text-sm"><LinkIcon size={14}/> ไปยัง Dashboard</a>
+                        <a href="/EditprofileUsers/Dashboard" className="flex items-center gap-1 text-indigo-600 hover:underline text-sm"><LinkIcon size={14}/> ไปยัง Dashboard</a>
                     </div>
                 </header>
                 
@@ -240,7 +240,7 @@ export default function AdminPage() {
                 <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
                     <input type="text" placeholder="ค้นหา..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="w-full sm:w-1/3 p-2 border border-gray-300 rounded-lg"/>
                     <div className="flex gap-2 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
-                        {activeTab === 'users' && <button onClick={() => openModal('user', { fullName: '', studentId: '', email: '', password: '', role: 'user' })} className="w-full sm:w-auto bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"><PlusCircle size={20}/> เพิ่มผู้ใช้ใหม่</button>}
+                        {activeTab === 'users' && <button onClick={() => openModal('user', { fullName: '', studentId: '', email: '', password: '', role: 'student' })} className="w-full sm:w-auto bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-700 transition"><PlusCircle size={20}/> เพิ่มผู้ใช้ใหม่</button>}
                         {activeTab === 'courses' && <button onClick={() => openModal('course', { name: '', code: '', credit: '', type: '', description: '', subcategory_id: 0 })} className="w-full sm:w-auto bg-green-600 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-green-700 transition"><PlusCircle size={20}/> เพิ่มวิชาใหม่</button>}
                         {activeTab === 'categories' && <button onClick={() => openModal('category', { name: '' })} className="w-full sm:w-auto bg-purple-600 text-white px-4 py-2 rounded-lg flex items-center justify-center gap-2 hover:bg-purple-700 transition"><PlusCircle size={20}/> เพิ่มหมวดหมู่ใหม่</button>}
                     </div>
@@ -430,8 +430,8 @@ const UserModal: React.FC<UserModalProps> = ({ user, onClose, onSave }) => {
                              <div><label className="block text-sm font-medium text-gray-700">รหัสผ่าน</label><input type="password" name="password" value={formData.password || ''} onChange={handleChange} className="w-full mt-1 p-2 border rounded-md"/></div>
                         )}
                         <div><label className="block text-sm font-medium text-gray-700">Role</label>
-                            <select name="role" value={formData.role || 'user'} onChange={handleChange} className="w-full mt-1 p-2 border rounded-md">
-                                <option value="user">User</option>
+                            <select name="role" value={formData.role || 'student'} onChange={handleChange} className="w-full mt-1 p-2 border rounded-md">
+                                <option value="student">Student</option>
                                 <option value="teacher">Teacher</option>
                             </select>
                         </div>

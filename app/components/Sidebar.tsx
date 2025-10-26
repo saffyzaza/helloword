@@ -66,20 +66,20 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     const studentNavItems = [ { id: 1, name: "Home", icon: <FiHome />, path: "/Homepage" },
                                { id: 2, name: "Profile", icon: <FiUsers />, path: "/EditprofileUsers" },
                                 { id: 3, name: "Courses", icon: <FiBook />, path: "/CourseViewer" },
-                                 { id: 4, name: "Help", icon: <FiHelpCircle />, path: "/help" }, 
+                                 
                                 ];
 
     const adminNavItems = [ { id: 1, name: "Dashboard", icon: <FiHome />, path: "/Homepage" },
                             { id: 2, name: "Manage Users", icon: <FaUserEdit />, path: "/EditprofileUsers" },
                             { id: 3, name: "TransCourses", icon: <GrTransaction />, path: "/CourseViewer" },
                             { id: 4, name: "Admin Panel", icon: <MdAdminPanelSettings />, path: "/EditprofileUsers/Admin" },
-                            { id: 5, name: "Settings", icon: <FiSettings />, path: "/settings" },
+                            
                              
                             ];
     const teacherNavItems = adminNavItems;
 
     const defaultNavItems = [ { id: 1, name: "Home", icon: <FiHome />, path: "/Homepage" },
-                              { id: 2, name: "Help", icon: <FiHelpCircle />, path: "/help" },
+                              { id: 2, name: "TransCourses", icon: <GrTransaction />, path: "/CourseViewer" },
                              ];
 
     switch (role) {

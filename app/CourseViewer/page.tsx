@@ -220,7 +220,7 @@ export default function CourseViewer() {
     return (
         <div className="relative flex min-h-screen font-sans">
             {/* Overlay for mobile */}
-            {isSidebarOpen && <div onClick={() => setIsSidebarOpen(false)} className="fixed inset-0 z-20 bg-black bg-opacity-50 md:hidden"></div>}
+            {isSidebarOpen && <div onClick={() => setIsSidebarOpen(false)} className="fixed inset-0 z-20 bg-transparent bg-opacity-50 md:hidden"></div>}
 
             {/* --- Sidebar --- */}
             <aside className={`fixed inset-y-0 left-0 z-30 w-80 flex-shrink-0 bg-white border-r border-gray-200 p-5 shadow-lg transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -268,7 +268,7 @@ export default function CourseViewer() {
                     <div className='mt-6 flex flex-wrap gap-2'>
                         <button onClick={() => handleViewChange('overview', null)} className="p-2 text-sm text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300">ภาพรวม</button>
                         <button onClick={() => window.location.href="/Homepage"} className="p-2 text-sm text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300">กลับหน้าแรก</button>
-                        <button onClick={() => window.location.href="/EditprofileUsers"} className="p-2 text-sm text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300">โปรไฟล์</button>
+                        <button onClick={() => window.location.href="/EditprofileUsers"} className="p-2 text-sm text-gray-600 bg-gray-200 rounded-md hover:bg-gray-300">ข้อมูลนักศึกษา</button>
                     </div>
                 </nav>
             </aside>
