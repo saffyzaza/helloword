@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
     const role = user?.role?.toLowerCase();
     const studentNavItems = [ { id: 1, name: "Home", icon: <FiHome />, path: "/Homepage" },
                                { id: 2, name: "Profile", icon: <FiUsers />, path: "/EditprofileUsers" },
-                                { id: 3, name: "Courses", icon: <FiBook />, path: "/CourseViewer" },
+                                { id: 3, name: "Courses", icon: <GrTransaction />, path: "/CourseViewer" },
                                  
                                 ];
 
