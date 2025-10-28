@@ -111,19 +111,19 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
 
   return (
     <>
-      <button aria-label="Toggle Menu" className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-gray-800 rounded-full shadow-lg" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
+      <button aria-label="Toggle Menu" className="md:hidden fixed top-4 left-4 z-50 p-2 bg-white dark:bg-white rounded-full shadow-lg" onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}>
         {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
       </button>
 
       <div className={`fixed inset-0 bg-transparent bg-opacity-30 transition-opacity md:hidden z-30 ${isMobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`} onClick={() => setMobileMenuOpen(false)} />
 
-      <aside className={`${className} flex-shrink-0 bg-white dark:bg-gray-800 shadow-xl transition-all duration-300 ease-in-out h-screen flex flex-col fixed md:relative md:translate-x-0 z-40 ${isMobileMenuOpen ? 'translate-x-0 w-64' : '-translate-x-full w-64'} ${!isCollapsed && 'md:w-64'} ${isCollapsed && 'md:w-20'}`}>
+      <aside className={`${className} flex-shrink-0 bg-white dark:bg-white shadow-xl transition-all duration-300 ease-in-out h-screen flex flex-col fixed md:relative md:translate-x-0 z-40 ${isMobileMenuOpen ? 'translate-x-0 w-64' : '-translate-x-full w-64'} ${!isCollapsed && 'md:w-64'} ${isCollapsed && 'md:w-20'}`}>
         <div className={`p-4 border-b border-gray-200 dark:border-gray-700 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
           <div className={`flex items-center overflow-hidden ${isCollapsed && 'md:hidden'}`}>
              <img src="../logo_ksu.png" alt="Logo" className="h-10 w-auto" />
              <span className="font-bold text-xl ml-2 dark:text-white">KSU</span>
           </div>
-          <button onClick={() => setIsCollapsed(!isCollapsed)} className="hidden md:flex bg-white dark:bg-gray-700 rounded-full p-1.5 border dark:border-gray-600 cursor-pointer shadow-sm" aria-label="Toggle Sidebar">
+          <button onClick={() => setIsCollapsed(!isCollapsed)} className="hidden md:flex bg-white dark:bg-white rounded-full p-1.5 border dark:border-gray-600 cursor-pointer shadow-sm" aria-label="Toggle Sidebar">
             {isCollapsed ? <FiChevronRight size={16} /> : <FiChevronLeft size={16} />}
           </button>
         </div>
