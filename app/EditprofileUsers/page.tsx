@@ -2,7 +2,8 @@
 
 import '../globals.css';
 import React, { useState, useEffect, useMemo } from 'react';
-import { FaHome,FiEdit, FiUser, FiAtSign, FiSearch, FiArrowRightCircle, FiChevronDown, FiTrash } from 'react-icons/fi';
+import { FiEdit, FiUser, FiAtSign, FiSearch, FiArrowRightCircle, FiChevronDown, FiTrash } from 'react-icons/fi';
+import { FaHome } from 'react-icons/fa';
 import { supabase } from '@/lib/supabaseClient';
 import ChangePasswordModal from '@/components/ChangePasswordModal';
 
