@@ -38,7 +38,7 @@ const MODEL_NAME = 'google/gemini-2.5-pro';
 const SITE_REFERER = 'https://your-site-url.com';
 const SITE_TITLE = 'Credit Transfer AI App';
 const MAX_RETRIES = 5;
-const MIN_CHARS = 150;
+const MIN_CHARS = 100;
 
 const courseToTransferMock = { 
     id: 10, subcategory_id: 3, credit: 'แล้วแต่วิชา', type: 'บังคับ', 
