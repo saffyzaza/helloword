@@ -392,7 +392,7 @@ const CreditTransferApp = ({ coursesCE }) => {
                             {isLoading ? (
                                 <>
                                     <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
-                                    <span>กำลังประมวลผลด้วย LLM (OpenRouter)...</span>
+                                    <span>กำลังประมวลผลด้วย วิชา...</span>
                                 </>
                             ) : (
                                 <>
