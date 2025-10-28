@@ -69,14 +69,14 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
                                  
                                 ];
 
-    const adminNavItems = [ { id: 1, name: "Dashboard", icon: <FiHome />, path: "/Homepage" },
+    const teacherNavItems = [ { id: 1, name: "Dashboard", icon: <FiHome />, path: "/Homepage" },
                             { id: 2, name: "Manage Users", icon: <FaUserEdit />, path: "/EditprofileUsers" },
                             { id: 3, name: "TransCourses", icon: <GrTransaction />, path: "/CourseViewer" },
                             { id: 4, name: "Admin Panel", icon: <MdAdminPanelSettings />, path: "/EditprofileUsers/Admin" },
                             
                              
                             ];
-    const teacherNavItems = adminNavItems;
+    const adminNavItems = teacherNavItems;
 
     const defaultNavItems = [ { id: 1, name: "Home", icon: <FiHome />, path: "/Homepage" },
                               { id: 2, name: "TransCourses", icon: <GrTransaction />, path: "/CourseViewer" },
