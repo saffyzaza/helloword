@@ -132,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           <ul className="space-y-2 px-3">
             {navigationItems.map((item) => (
               <li key={item.id}>
-                <button onClick={() => handleItemClick(item.id, item.path)} className={`w-full flex items-center px-3 py-2.5 rounded-lg transition-colors duration-200 ${isCollapsed ? 'justify-center' : ''} ${ activeItem === item.id ? "bg-blue-500 text-white shadow-inner" : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" }`} title={isCollapsed ? item.name : ''}>
+                <button onClick={() => handleItemClick(item.id, item.path)} className={`w-full flex items-center px-3 py-2.5 rounded-lg transition-colors duration-200 ${isCollapsed ? 'justify-center' : ''} ${ activeItem === item.id ? "bg-blue-500 text-white shadow-inner" : "text-gray-600 dark:dark:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700" }`} title={isCollapsed ? item.name : ''}>
                   <span className="text-xl">{item.icon}</span>
                   <span className={`ml-4 whitespace-nowrap ${isCollapsed && "md:hidden"}`}>{item.name}</span>
                 </button>
@@ -145,7 +145,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className }) => {
           <div className="flex items-center space-x-3">
             <div className="flex-shrink-0"> <FaUser size={24} className="text-gray-500 dark:text-gray-400" /> </div>
             <div className={`overflow-hidden whitespace-nowrap ${isCollapsed && "md:hidden"}`}>
-              {user ? ( <> <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">{user.username}</p> <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{user.role}</p> </> ) : ( <a href="/login" className="text-sm font-semibold text-blue-500 hover:underline"> Login </a> )}
+              {user ? ( <> <p className="text-sm font-semibold text-gray-800 dark:dark:text-gray-700">{user.username}</p> <p className="text-xs text-gray-500 dark:text-gray-400 capitalize">{user.role}</p> </> ) : ( <a href="/login" className="text-sm font-semibold text-blue-500 hover:underline"> Login </a> )}
             </div>
             {user && ( <button onClick={handleLogout} title="Logout" className={`text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 ${isCollapsed && 'md:hidden'}`}> <FaSignOutAlt size={20} /> </button> )}
           </div>
