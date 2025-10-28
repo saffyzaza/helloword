@@ -2,7 +2,7 @@
 
 import '../globals.css';
 import React, { useState, useEffect, useMemo } from 'react';
-import { FiEdit, FiUser, FiAtSign, FiSearch, FiArrowRightCircle, FiChevronDown, FiTrash } from 'react-icons/fi';
+import { FaHome,FiEdit, FiUser, FiAtSign, FiSearch, FiArrowRightCircle, FiChevronDown, FiTrash } from 'react-icons/fi';
 import { supabase } from '@/lib/supabaseClient';
 import ChangePasswordModal from '@/components/ChangePasswordModal';
 
@@ -398,7 +398,16 @@ export default function StudentProfilePage() {
     <div className="mt-4 flex flex-wrap items-center justify-center sm:justify-start gap-x-6 gap-y-2 text-sm">
         {user?.email && <div className="flex items-center gap-2 text-slate-600"><AtSignIcon /><span>{user.email}</span></div>}
         {user?.username && <div className="flex items-center gap-2 text-slate-600"><UserCircleIcon /><span>ชื่อผู้ใช้: {user.username}</span></div>}
-        <button onClick={() => window.location.href="/Homepage"} className='text-indigo-600 hover:underline font-semibold'>Home</button>
+        <button
+  onClick={() => window.location.href = "/Homepage"}
+  className='bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg 
+             shadow-md hover:bg-indigo-700 hover:shadow-lg 
+             transform hover:scale-105 transition-all duration-300 ease-in-out
+             flex items-center gap-2' // เพิ่มคลาสสำหรับจัดเรียง
+>
+  <FaHome /> {/* ใส่ไอคอน */}
+  Home
+</button>
 
         {/* --- ADD THIS BUTTON --- */}
         <button 
