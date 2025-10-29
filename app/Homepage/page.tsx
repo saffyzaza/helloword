@@ -145,8 +145,7 @@ export default function Homepage() {
                 </div>
               </div>
               <p className="mt-4 text-gray-600">
-                คณะวิทยาการสารสนเทศและการสื่อสาร<br/>
-                มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตสกลนคร
+                มหาวิทยาลัยกาฬสินธุ์
               </p>
             </div>
           </div>
